@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //Local
+  //apiUrl: 'http://localhost:9090'
+
+  //Ngrok
+  apiUrl: 'https://0768-152-202-1-13.ngrok.io'
 };
 
 /*
