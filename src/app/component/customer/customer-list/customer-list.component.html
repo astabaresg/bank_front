@@ -1,6 +1,13 @@
 <h2>Customer List</h2>
 
-<li *ngFor="let customer of customers">
-{{customer.custId}} - {{customer.name}} - {{customer.email}}
-<a [routerLink]="['/customer-edit', customer.custId]"> Edit </a>
-</li>
+<div class="customers">
+  <div class="customer" *ngFor="let customer of customers" >
+    <h4>Customer</h4>
+    <ul>
+      <li >
+        {{customer.custId}} - {{customer.name}} - {{customer.email}}
+        <a [routerLink]="['/customer-edit', customer.custId]"> Edit </a>
+        </li>
+    </ul>
+  </div>
+</div>

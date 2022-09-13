@@ -49,6 +49,7 @@ export class CustomerSaveComponent implements OnInit {
       console.log(this.customer)
       this.showMsg = true;
       this.messages= error.error.error;
+      console.error(error)
     });
   }
 

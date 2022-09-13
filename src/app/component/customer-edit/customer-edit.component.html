@@ -1,30 +1,125 @@
-<div *ngIf="customer" >
-    <h2>Customer Edit</h2>
-    <div *ngIf="showMsg">
-        <li *ngFor="let msg of messages" >
-            {{msg}}
-        </li>
+<div *ngIf="customer">
+  <h2>Customer Edit</h2>
+  <div *ngIf="showMsg">
+    <li *ngFor="let msg of messages">
+      {{ msg }}
+    </li>
+  </div>
+
+  <form #customerForm="ngForm">
+    <div class="form-group">
+      <label for="custId">Id</label>
+      <input
+        [(ngModel)]="customer.custId"
+        #custId
+        class="form-control"
+        type="text"
+        name="custId"
+        id="custId"
+        placeholder="id"
+      />
     </div>
-
-    <form #customerForm="ngForm">
-        <input [(ngModel)]="customer.custId" #custId type="text" name="custId" id="custId" placeholder="id" /> <br>
-        <select [(ngModel)]="customer.dotyId" #dotyId name="dotyId" id="dotyId">
-            <option *ngFor="let documentType of documentTypes" [value]="documentType.dotyId">
-                {{documentType.name}}
-            </option>
-        </select> <br>
-        <input [(ngModel)]="customer.name" #name type="text" name="name" id="name" placeholder="name" /> <br>
-        <input [(ngModel)]="customer.address" #address type="text" name="address" id="address" placeholder="addres" /> <br>
-        <input [(ngModel)]="customer.phone" #phone type="text" name="phone" id="phone" placeholder="phone" /> <br>
-        <input [(ngModel)]="customer.email" #email type="email" name="email" id="email" placeholder="email" /> <br>
-        <input [(ngModel)]="customer.token" #token type="text" name="token" id="token" placeholder="token" /> <br>
-        <select [(ngModel)]="customer.enable" #enable name="enable" id="enable">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select> <br>
-        <button (click)="update()" >Save</button>
-        <button (click)="delete()" >Delete</button>
-        <button routerLink="/customer-list" >Cancel</button>
-    </form>
-
+    <div class="form-group">
+      <label for="dotyId">Document Type</label>
+      <select
+        [(ngModel)]="customer.dotyId"
+        #dotyId
+        class="form-control"
+        name="dotyId"
+        id="dotyId"
+      >
+        <option
+          *ngFor="let documentType of documentTypes"
+          [value]="documentType.dotyId"
+        >
+          {{ documentType.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        [(ngModel)]="customer.name"
+        #name
+        class="form-control"
+        type="text"
+        name="name"
+        id="name"
+        placeholder="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+        [(ngModel)]="customer.address"
+        #address
+        type="text"
+        class="form-control"
+        name="address"
+        id="address"
+        placeholder="address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input
+        [(ngModel)]="customer.phone"
+        #phone
+        class="form-control"
+        type="text"
+        name="phone"
+        id="phone"
+        placeholder="phone"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        [(ngModel)]="customer.email"
+        #email
+        class="form-control"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="token">Token</label>
+      <input
+        [(ngModel)]="customer.token"
+        #token
+        class="form-control"
+        type="text"
+        name="token"
+        id="token"
+        placeholder="token"
+      />
+    </div>
+    <div class="form-group">
+      <label for="enable">Enable</label>
+      <select
+        [(ngModel)]="customer.enable"
+        #enable
+        class="form-control"
+        name="enable"
+        id="enable"
+      >
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+    <br>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-success" (click)="update()">
+        Update
+      </button>
+      <button type="button" class="btn btn-danger" (click)="delete()">
+        Delete
+      </button>
+      <button type="button" class="btn btn-primary" routerLink="/customer-list">
+        Cancel
+      </button>
+    </div>
+  </form>
 </div>
