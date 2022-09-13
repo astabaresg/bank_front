@@ -1,7 +1,7 @@
 export interface Customer {
 
   custId: number;
-  addres: string;
+  address: string;
   email: string;
   enable: boolean;
   name: string;

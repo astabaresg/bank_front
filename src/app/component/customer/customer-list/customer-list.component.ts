@@ -9,7 +9,7 @@ import { CustomerService } from 'src/app/service/customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  customers?:Customer[];
+  customers!:Customer[];
 
   constructor(public customerService:CustomerService) { }
 
